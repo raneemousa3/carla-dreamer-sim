@@ -13,7 +13,7 @@ class CarlaBaseEnv(gym.Env):
     def __init__(self, config):
         self._config = config
 
-        self._monitor = EnvMonitorOpenCV(self._config)
+        self._monitor = EnvMonitorOpenCV(self._config) if self._config.display.enable else None
         self._world = WorldManager(self._config)
         self._world.on_reset(self.on_reset)
         self._world.on_step(self.on_step)

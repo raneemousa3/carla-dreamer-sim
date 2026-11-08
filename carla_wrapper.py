@@ -158,6 +158,7 @@ class CarlaWrapper(CarlaFollowEnv):
         Reset the environment and return the initial observation.
         """
         self.reset_to_state = reset_to_state
+        self.collision_count = 0
         obs = super().reset()
         obs = self.get_obs(obs)
         return obs, self.state()
@@ -247,13 +248,11 @@ class CarlaWrapper(CarlaFollowEnv):
         return obs, reward, done, info
     
     def _is_terminal(self):
-        terminal = False
-        if self.collision_count > 5:
-            terminal = True
-            self.collision_count = 0
-        return terminal, {
+        terminal, info = super()._is_terminal()
+        info.update({
             "collision_count": self.collision_count,
             "distance": self.get_distance(),
-        }
+        })
+        return terminal, info
 
 

@@ -26,7 +26,7 @@ class CarlaFollowEnv(CarlaWptEnv):
         nonego_tf = self.nonego.get_transform()
         return [
             ego_tf.location.x, ego_tf.location.y, ego_tf.location.z, ego_tf.rotation.pitch, ego_tf.rotation.yaw, ego_tf.rotation.roll,
-            nonego_tf.location.x, nonego_tf.location.y, nonego_tf.location.z, ego_tf.rotation.pitch, nonego_tf.rotation.yaw, nonego_tf.rotation.roll
+            nonego_tf.location.x, nonego_tf.location.y, nonego_tf.location.z, nonego_tf.rotation.pitch, nonego_tf.rotation.yaw, nonego_tf.rotation.roll
         ]
 
     # def set_reset_to_state(self, reset_to_state):
