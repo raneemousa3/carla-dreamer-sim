@@ -1,4 +1,4 @@
-"""Collect synchronized RGB frames and signed nearest-lane offsets in CARLA 0.9.15."""
+"""Collect synchronized RGB frames and signed """
 
 import argparse
 import math
